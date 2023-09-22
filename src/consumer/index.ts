@@ -1,7 +1,7 @@
 
-import { IEnv } from "../interfaces/IEnv";
+import { IEnv } from "../lib/interfaces/IEnv";
 
-export const consumer = async (batch: MessageBatch<Error>, env: IEnv): Promise<void> => {
+export const consumer = async (batch: MessageBatch<{ name: string, age: number }>, env: IEnv): Promise<void> => {
 
     for (let message of batch.messages) {
         console.log(`message ${message.id} processed: ${JSON.stringify(message.body)}`);
@@ -14,8 +14,14 @@ export const consumer = async (batch: MessageBatch<Error>, env: IEnv): Promise<v
             body: JSON.stringify(message.body),
         });
 
-        JSON.stringify(await response.json());
-        await message.ack();
+        const data: any = JSON.stringify(await response.json());
+
+        if (data.payload) {
+            await message.ack();
+
+        } else {
+
+        }
 
     }
 
