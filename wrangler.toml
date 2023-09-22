@@ -17,4 +17,3 @@ queue = "my-queue"
 # max_batch_timeout = 30
 # max_retries = 10
 # dead_letter_queue = "my-queue-dlq"
-compatibility_flags = ["nodejs_compat"]

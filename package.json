@@ -1,7 +1,12 @@
 {
-  "name": "q-consumer",
-  "version": "0.0.0",
-  "private": true,
+  "name": "cloudflare-queues",
+  "version": "0.0.1",
+  "private": false,
+  "author": {
+    "name": "Md jahir Alam raju",
+    "email": "work.jahiralam@gmail.com",
+    "url": "https://github.com/jahir9991/cloudflare-queues"
+  },
   "scripts": {
     "deploy": "wrangler deploy",
     "start": "wrangler dev"
